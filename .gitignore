@@ -81,6 +81,14 @@ target/
 profile_default/
 ipython_config.py
 
+# added because textbook told me to :3
+pyc
+.DS_Store
+__pycache__/
+db.sqlite3
+*.key
+thumbs.db
+
 # pyenv
 .python-version
 
