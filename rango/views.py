@@ -43,22 +43,22 @@ def index(request):
 	context_dict['categories'] = category_list
 	context_dict['pages'] = pages_list
 
-
 	# Call the helper function to handle the cookies
 	visitor_cookie_handler(request)
-	context_dict['visits'] = request.session['visits']
 
 	# Obtain our Response object early so we can add cookie information
 	response = render(request, 'rango/index.html', context=context_dict)
 	return response
-	# Render the response and send it back!
-	# return render(request, 'rango/index.html', context=context_dict)
 
 
 def about(request):
 	print(request.method)
 	print(request.user)
 	context_dict = {'boldmessage': 'This tutorial has been put together by Callen.'}
+	
+	visitor_cookie_handler(request)
+	context_dict['visits'] = request.session['visits']
+	
 	return render(request, 'rango/about.html', context=context_dict)
 
 
